@@ -1,5 +1,15 @@
-body{
+body {
 	font-family: 'Metrophobic', arial, serif;
+}
+
+body a{
+	color:#78B47B;
+	text-decoration:none;
+}
+
+body a:hover{
+	color:#78B47B;
+	text-decoration:none;
 }
 
 .logo {

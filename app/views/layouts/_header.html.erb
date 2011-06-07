@@ -3,10 +3,17 @@
 	</a>
 	<ul>
         	<li><%= link_to "Home", root_path, :title => "Home" %></li>
+		<% if signed_in? %>
+      		<li><%= link_to "Profile", current_user %></li>
+      		<% end %>
         	<li><%= link_to "Help", help_path, :title => "Help" %></li>
         	<li><%= link_to "About us", about_path, :title => "About us" %></li>
         	<li><%= link_to "Contact", contact_path, :title => "Contact us" %></li>
-        	<li><%= link_to "Sign in", '#', :title => "Sign in" %></li>
+		<% if signed_in? %>
+		<li><%= link_to "Sign out", signout_path, :method => :delete, :title => "Sign out" %></li>
+		<% else %>
+		<li><%= link_to "Sign in", signin_path, :title => "Sign in" %></li>
+		<% end %>
         </ul>
 
 </div>
