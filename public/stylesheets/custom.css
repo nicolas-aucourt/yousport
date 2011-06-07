@@ -1,0 +1,137 @@
+body{
+	font-family: 'Metrophobic', arial, serif;
+}
+
+.logo {
+  font-size: 65px;
+  font-style: bold;
+  font-weight: 700;
+  text-shadow: 6px 6px 6px #ccc;
+  text-decoration: none;
+  text-transform: none;
+  letter-spacing: 0.117em;
+  word-spacing: -0.011em;
+  line-height: 1.2;
+  float:left;
+  color:#333333;
+}
+
+.green {
+	color:#78B47B;
+}
+
+#header {
+	background-color:#FEFEFE;
+	height:90px;
+	clear:both;
+}
+
+#header ul {
+	float:left;
+	margin:0;
+	margin-top:35px;
+	text-align:right;
+	width:574px;
+}
+
+#header ul li {
+  list-style-type:none;  
+  display: inline-block;
+  padding: 0.2em 0;
+}
+
+#header ul li a {
+  padding: 0 10px;
+  font-weight: bold;
+  color:#333333;
+  font-size: 18px;
+  text-decoration:none;
+}
+
+#header ul li a:hover {
+  color:#78B47B;
+}
+
+#feature {
+	background:transparent url(../images/feature_bg.png) no-repeat scroll 50% 0;
+	background-color:#000000;
+}
+
+#feature .top_shadow {
+	background:transparent url(../images/feature_t_shadow.png) repeat-x scroll 0 0;
+	font-size:0;
+	height:10px;
+	line-height:10px;
+	overflow:hidden;
+}
+
+#feature .bottom_shadow {
+	background:transparent url(../images/feature_b_shadow.png) repeat-x scroll 0 0;
+	font-size:0;
+	height:9px;
+	line-height:9px;
+}
+
+#feature .inner {
+	padding:15px 0;
+}
+
+.inner {
+	height:100%;
+	margin:0 auto;
+	position:relative;
+	width:960px;
+}
+
+#feature h1 {
+	font-size:3.5em;
+	margin-bottom:0;
+	padding:2px 0;
+	color:#FFFFFF;
+	font-size:32px;
+}
+
+#page {
+	background:transparent url(../images/page_top_line.png) repeat-x scroll 0 0;
+	position:relative;
+	background-color:#FEFEFE;
+	color:#333333;
+	font-size:12px;	
+}
+
+#page .inner {
+	padding:40px 0 0;
+}
+
+#page_bottom {
+	background:transparent url(../images/page_bottom_line.png) repeat-x scroll 0 0;
+	height:30px;
+	background-color:#FEFEFE;
+}
+
+#footer {
+	background:transparent url(../images/footer.png) no-repeat scroll 50% 0;
+	background-color:#000000;
+	color:#FFFFFF;
+	font-size:12px;
+}
+
+#footer_shadow {
+	background:transparent url(../images/footer_shadow.png) repeat-x scroll 0 0;
+	font-size:0;
+	height:10px;
+	line-height:10px;
+	overflow:hidden;
+}
+
+#footer_bottom {
+	background:transparent url(../images/footer_bottom.png) repeat-x scroll 50% 0;
+	letter-spacing:1px;
+	background-color:transparent;
+}
+
+#footer .inner {
+	overflow:hidden;
+	padding:30px 0 40px;
+	padding:12px 0;
+}
