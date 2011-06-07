@@ -16,6 +16,11 @@ body{
   color:#333333;
 }
 
+.logo:hover {
+  text-decoration: none;
+  color:#333333;
+}
+
 .green {
 	color:#78B47B;
 }
