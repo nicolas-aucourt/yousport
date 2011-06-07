@@ -17,6 +17,10 @@
 <div id="page">
 	<div class="inner" style="text-align:justify">
 
+	<% flash.each do |key, value| %>
+          <div class="flash <%= key %>"><%= value %></div>
+        <% end %>
+
 	<%= yield %>
 
 	</div>

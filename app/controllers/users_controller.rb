@@ -13,6 +13,18 @@ class UsersController < ApplicationController
 	@meta_title="Meta title of the Sign Up"
 	@meta_desc="Meta description of the Sign Up"
 	@h1="Sign Up"
+	@user = User.new
+  end
+
+  def create
+	@user = User.new(params[:user])
+	if @user.save     
+		flash[:success] = "Welcome to YouSport!"
+		redirect_to @user
+	else
+		@title = "Sign up"
+		render 'new'
+	end
   end
 
 end
