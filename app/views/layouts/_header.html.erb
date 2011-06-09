@@ -7,7 +7,9 @@
       		<li><%= link_to "Profile", current_user %></li>
       		<% end %>
         	<li><%= link_to "Help", help_path, :title => "Help" %></li>
+		<% if !signed_in? %>
         	<li><%= link_to "About us", about_path, :title => "About us" %></li>
+		<% end %>
         	<li><%= link_to "Contact", contact_path, :title => "Contact us" %></li>
 		<% if signed_in? %>
 		<li><%= link_to "Sign out", signout_path, :method => :delete, :title => "Sign out" %></li>
