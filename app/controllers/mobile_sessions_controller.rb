@@ -13,7 +13,7 @@ class MobileSessionsController < ApplicationController
       		render :text => 'false'
     	else
       		sign_in user
-      		render :text => cookies[:remember_token]
+      		render :text => 'true'
     	end
   end
 
