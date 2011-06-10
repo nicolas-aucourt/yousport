@@ -1,5 +1,16 @@
 <div id="feature">
 	<div class="top_shadow"></div>
-		<div class="inner"><h1><%= @h1 %></h1></div>
+		<% if(@pageurl == "/") %>
+		<div style="height:250px;width:960px">
+		<div style="height:235px;width:40%;padding-top:15px;padding-left:15px;float:left"><h1><%= @h1 %></h1></div>
+		<div style="height:235px;width:56%;padding-top:15px;padding-left:15px;float:left">
+		
+		</div>
+		</div>
+		<% else %>
+		<div class="inner">
+		<h1><%= @h1 %></h1>
+		</div>
+		<% end %>
 	<div class="bottom_shadow"></div>
 </div>

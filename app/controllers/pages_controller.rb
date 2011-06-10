@@ -3,7 +3,8 @@ class PagesController < ApplicationController
 	@title="Home"
 	@meta_title="Meta title of the Home"
 	@meta_desc="Meta description of the Home"
-	@h1="YouSport"
+	@h1="YouSport helps you to share information with you proximity depending on your interest."
+	@pageurl=request.fullpath
   end
 
   def contact
