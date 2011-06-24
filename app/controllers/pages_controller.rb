@@ -3,8 +3,27 @@ class PagesController < ApplicationController
 	@title="Home"
 	@meta_title="Meta title of the Home"
 	@meta_desc="Meta description of the Home"
-	@h1="YouSport helps you to share information with you proximity depending on your interest."
-	@pageurl=request.fullpath
+	@h1="YouSport helps to share information with your proximity depending on your sport's interests."
+	@pageurl=request.fullpath    
+	@event = Event.new if signed_in?
+  end
+
+  def yourevents
+	@title="Your events"
+	@meta_title="Meta title of the Events"
+	@meta_desc="Meta description of the Events"
+	@h1="Your events"
+	if signed_in?	
+		@event = Event.new
+		@events = current_user.events.paginate(:page => params[:page], :per_page => 10) 
+	end
+  end
+
+  def yoursubscriptions
+	@title="Your subscriptions"
+	@meta_title="Meta title of the Subscriptions"
+	@meta_desc="Meta description of the Subscriptions"
+	@h1="Your subscriptions"
   end
 
   def contact

@@ -200,3 +200,21 @@ div.success {
 	background:#E6EFC2 none repeat scroll 0 0;
 	border-color:#78B47B;
 }
+
+#content_right {
+	width:70%;
+	float:left;
+}
+
+#content_left {
+	width:25%;
+	margin-left:2%;
+	padding-left:2%;
+	float:left;
+	border-left:solid 1px #D7D5D5;
+}
+
+#slidediv{
+	display:none;
+}
+

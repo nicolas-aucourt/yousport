@@ -15,6 +15,12 @@ class User < ActiveRecord::Base
 	attr_accessor :password
 	attr_accessible :email, :password, :password_confirmation
 
+	has_many :events, :dependent => :destroy
+
+	#Many to many relation
+	has_many :subscriptions
+	has_many :events, :through => :subscriptions
+
 	email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
 	validates :email, :presence => true,

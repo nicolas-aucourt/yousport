@@ -1,7 +1,19 @@
 
-<%= link_to "Modify your profile", edit_user_path(current_user) %>
+<h2>All your events</h2>
 
-<br /><br /><br />
+<% unless @events.empty? %>
+<%= will_paginate @events %>
+<ul class="users">
+  <% @events.each do |event| %>
+    <li>
+      <%= event.name %> <br />
+      Created <%= time_ago_in_words(event.created_at) %> ago.
+    </li>
+  <% end %>
+</ul>
+<%= will_paginate @events %>
+<% end %>
 
-<%= @user.id %>, <%= @user.email %>
+
+
 

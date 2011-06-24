@@ -1,0 +1,25 @@
+<a class="toggle_event" href="#" title="Create an event!">Create an event!</a>
+<div id="slidediv">
+<%= render 'shared/event_form' %>
+<a class="toggle_event" href="#" title="Close this panel">Close this panel</a>
+</div>
+
+<h2>All your events</h2>
+
+<% unless @events.empty? %>
+<%= will_paginate @events %>
+<ul class="users">
+  <% @events.each do |event| %>
+    <li>
+      <%= event.name %> <br />
+      Created <%= time_ago_in_words(event.created_at) %> ago.
+      <% if current_user?(event.user) %>
+      	<%= link_to "delete", event, :method => :delete,
+                                     :confirm => "You sure?",
+                                     :title => event.description %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+<%= will_paginate @events %>
+<% end %>

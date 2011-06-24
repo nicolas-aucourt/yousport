@@ -1,10 +1,13 @@
 <div id="feature">
 	<div class="top_shadow"></div>
-		<% if(@pageurl == "/") %>
-		<div style="height:250px;width:960px">
-		<div style="height:235px;width:40%;padding-top:15px;padding-left:15px;float:left"><h1><%= @h1 %></h1></div>
+		<% if @pageurl == "/" and !signed_in? %>
+		<div class="inner" style="height:250px;width:960px">
+		<div style="height:235px;width:40%;padding-top:15px;padding-left:15px;float:left">
+		<h1><%= @h1 %></h1>
+		</div>
 		<div style="height:235px;width:56%;padding-top:15px;padding-left:15px;float:left">
-		
+		<br /><br /><br /><br /><br />
+		<%= link_to "Sign up now!", signup_path, :class => "signup_button round", :style => "font-size:50px;padding-left:210px", :title => "Sign up now!" %>
 		</div>
 		</div>
 		<% else %>

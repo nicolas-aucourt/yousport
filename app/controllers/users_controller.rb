@@ -3,12 +3,14 @@ class UsersController < ApplicationController
   before_filter :correct_user, :only => [:edit, :update]
 
   def index
-    	@title = "All users"
-    	@users = User.all
+    	@title = "All users"    
+	@users = User.paginate(:page => params[:page])
   end
 
   def show
 	@user = User.find(params[:id])
+	@events = @user.events.paginate(:page => params[:page], :per_page => 10) 
+	@event = Event.new
 	@title = @user.email
 	@meta_title="Meta title of " + @user.email
 	@meta_desc="Meta description of " + @user.email
@@ -56,9 +58,6 @@ class UsersController < ApplicationController
   end
 
   private
-	def authenticate
-      		deny_access unless signed_in?
-    	end
 
 	def correct_user
       		@user = User.find(params[:id])

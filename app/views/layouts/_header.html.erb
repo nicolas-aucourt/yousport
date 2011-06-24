@@ -2,9 +2,12 @@
 	<a class="logo" href="/" title="YouSport"><span class="green">Y</span>ou<span class="green">S</span>port
 	</a>
 	<ul>
+		<% if !signed_in? %>
         	<li><%= link_to "Home", root_path, :title => "Home" %></li>
+		<% end %>
 		<% if signed_in? %>
-      		<li><%= link_to "Profile", current_user %></li>
+      		<li><%= link_to "Events", yourevents_path %></li>
+      		<li><%= link_to "Subscriptions", yoursubscriptions_path %></li>
       		<% end %>
         	<li><%= link_to "Help", help_path, :title => "Help" %></li>
 		<% if !signed_in? %>

@@ -6,6 +6,7 @@
   <%= render 'layouts/metas' %>
   <%= csrf_meta_tag %> 
   <%= render 'layouts/stylesheets' %>
+  <%= render 'layouts/javascripts' %>
 
 </head>
 <body>
@@ -15,13 +16,23 @@
   <%= render 'layouts/feature' %>
 
 <div id="page">
-	<div class="inner" style="text-align:justify">
+	<div class="inner" style="text-align:justify;overflow:hidden">
+	
+	<div id="content_right">
 
 	<% flash.each do |key, value| %>
           <div class="flash <%= key %>"><%= value %></div>
         <% end %>
 
 	<%= yield %>
+
+	</div>
+
+	<div id="content_left">
+
+		<%= render 'layouts/sidebar' %>
+
+	</div>
 
 	</div>
 </div>
