@@ -1,8 +1,8 @@
 class CreateSubscriptions < ActiveRecord::Migration
   def self.up
     create_table :subscriptions do |t|
-      t.id :user_id
-      t.id :event_id
+      t.integer :user_id, :null => false
+      t.integer :event_id, :null => false
 
       t.timestamps
     end
