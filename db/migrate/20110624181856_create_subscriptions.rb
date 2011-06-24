@@ -6,8 +6,6 @@ class CreateSubscriptions < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :subscriptions, :user_id
-    add_index :subscriptions, :event_id
   end
 
   def self.down
