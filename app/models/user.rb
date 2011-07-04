@@ -18,8 +18,8 @@ class User < ActiveRecord::Base
 	has_many :events, :dependent => :destroy
 
 	#Many to many relation
-	has_many :subscriptions
-	has_many :events, :through => :subscriptions
+	has_many :relationships, :foreign_key => "user_id"
+	has_many :subscriptions, :through => :relationships, :source => :event
 
 	email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
@@ -46,6 +46,18 @@ class User < ActiveRecord::Base
     		user = find_by_id(id)
     		(user && user.salt == cookie_salt) ? user : nil
  	end
+
+	def subscribe?(event)
+	    relationships.find_by_event_id(event)
+  	end
+
+	def subscribe!(event)
+    		relationships.create!(:event_id => event.id)
+  	end
+
+	def unsubscribe!(event)
+    		relationships.find_by_event_id(event).destroy
+  	end
 
 private
 	def encrypt_password      

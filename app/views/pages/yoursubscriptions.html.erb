@@ -1,13 +1,27 @@
 
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lectus nunc, pulvinar at adipiscing a, tincidunt ut lacus. Curabitur sit amet erat risus. Nulla facilisi. Phasellus ullamcorper orci quis leo aliquam lobortis. In pellentesque auctor nunc at porta. Vestibulum in justo nisl, vel adipiscing sem. Aenean pretium sem at sapien lacinia ut rutrum magna tristique. Donec cursus nulla id felis venenatis ut semper tortor varius. Donec porta, urna eget consequat laoreet, neque nisi tincidunt mi, sit amet adipiscing purus nisl id mauris. Cras dolor eros, egestas sit amet suscipit posuere, gravida id libero. Etiam condimentum neque et lectus ultrices quis tincidunt arcu blandit. Ut vel arcu arcu, eget gravida nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+<h2>All your subscriptions</h2>
 
-Etiam turpis libero, pharetra ultrices fermentum et, commodo a mauris. Sed commodo velit ac velit gravida eu sagittis felis tristique. Nunc malesuada justo eu arcu suscipit dictum. Ut ultricies ornare augue in feugiat. In feugiat eleifend ipsum, at feugiat nisi porttitor non. Proin ornare, velit at auctor rutrum, velit nunc bibendum ipsum, vitae cursus ante quam et justo. Integer orci dui, laoreet bibendum eleifend sed, gravida quis lorem. Maecenas urna leo, venenatis nec suscipit ac, elementum aliquet ipsum. Ut mattis tincidunt augue ac rhoncus. Vivamus fermentum lacus a turpis pellentesque non varius dui accumsan.
+<% unless @subscriptions.empty? %>
+<%= will_paginate @subscriptions %>
+<ul class="users">
+  <% @subscriptions.each do |subscription| %>
+    <li>
+      <%= subscription.name %> <br />
+      Created <%= time_ago_in_words(subscription.created_at) %> ago.
+      <% if current_user?(subscription.user) %>
+      	<%= link_to "delete", subscription, :method => :delete,
+                                     :confirm => "You are going to delete "+subscription.name+", You sure?",
+                                     :title => "Delete"+subscription.name %>
+      <% end %>
+	
+<%= form_for current_user.relationships.find_by_event_id(subscription.id),
+             :html => { :method => :delete } do |f| %>
+  <div class="actions"><%= f.submit "Unsubscribe" %></div>
+<% end %>
+    </li>
+  <% end %>
+</ul>
 
-Quisque semper tempor nisi, ut hendrerit odio facilisis pulvinar. Suspendisse potenti. In cursus ultrices justo nec malesuada. Nunc eu tempor purus. In mauris ante, feugiat vitae consequat sit amet, vulputate ac est. Duis diam lectus, sollicitudin pretium sollicitudin vel, pulvinar nec nunc. Proin iaculis sagittis risus ornare ultricies. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer egestas leo vel quam interdum in rutrum nibh mattis. Sed sodales augue a neque dapibus tincidunt. Nulla faucibus lacus eu nulla pulvinar tempor gravida justo rhoncus. Vestibulum fermentum, mi vitae lobortis facilisis, ligula urna elementum quam, non feugiat odio magna faucibus nisl.
 
-Mauris lacinia, leo ut cursus facilisis, nibh felis posuere eros, vitae ultricies purus leo vitae ligula. Mauris laoreet ipsum nulla. Suspendisse potenti. Proin congue suscipit mauris non condimentum. Cras vel sollicitudin leo. Vestibulum tincidunt porta purus, id adipiscing velit lacinia ultrices. Quisque accumsan sagittis tincidunt. Ut varius velit ac massa dapibus a rutrum dolor porttitor. Aliquam sodales laoreet est et ultricies. Integer vestibulum blandit ipsum, at faucibus urna blandit ac. Fusce velit metus, aliquam eu dictum ac, dapibus tincidunt massa. Donec nec ligula est, nec imperdiet lectus. Integer facilisis suscipit nulla non viverra.
-
-Vivamus luctus lacus non lectus vehicula id lobortis mauris vulputate. Mauris venenatis lectus nec augue feugiat eget malesuada nunc mattis. Nulla tortor nunc, sagittis in luctus at, tincidunt quis purus. Nulla tempor augue non eros iaculis porttitor. Vivamus luctus tortor nec diam hendrerit sed convallis ligula ornare. Sed sapien justo, elementum vel viverra vel, semper eu velit. Donec tempus ullamcorper urna, at convallis mauris egestas sit amet. Vestibulum vulputate odio ac nisi suscipit convallis. In imperdiet placerat porta. Quisque ut suscipit quam. In sodales leo et mi ultricies volutpat non eu tortor. Vivamus sed nibh ante. Aenean malesuada pulvinar lacinia. Proin et orci ut massa dictum pretium pellentesque et urna. 
-</p>
-
+<%= will_paginate @subscriptions %>
+<% end %>

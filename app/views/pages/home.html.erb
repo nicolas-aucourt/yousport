@@ -5,6 +5,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lectus nunc, 
 Quisque semper tempor nisi, ut hendrerit odio facilisis pulvinar. Suspendisse potenti. In cursus ultrices justo nec malesuada. Nunc eu tempor purus. In mauris ante, feugiat vitae consequat sit amet, vulputate ac est. Duis diam lectus, sollicitudin pretium sollicitudin vel, pulvinar nec nunc. Proin iaculis sagittis risus ornare ultricies. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer egestas leo vel quam interdum in rutrum nibh mattis. Sed sodales augue a neque dapibus tincidunt. Nulla faucibus lacus eu nulla pulvinar tempor gravida justo rhoncus. Vestibulum fermentum, mi vitae lobortis facilisis, ligula urna elementum quam, non feugiat odio magna faucibus nisl.
 </p>
 <% else %>
-<%= render 'shared/event_form' %>
+
+<h2>All events in your proximity</h2>
+
+<%= gmaps("map_options" => { "detect_location" => true, "center_on_user" => true, "zoom" => 6},"markers" => { "data" => @json }) %>
+
+<%= render 'shared/list_events_proximity' %>
 
 <% end %>

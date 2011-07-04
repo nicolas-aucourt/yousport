@@ -5,6 +5,18 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :startdate %><br />
+    <%= f.datetime_select :startdate %>
+  </div>
+  <div class="field">
+    <%= f.label :enddate %><br />
+    <%= f.datetime_select :enddate %>
+  </div>
+  <div class="field">
     <%= f.label :description %><br />
     <%= f.text_area :description %>
   </div>

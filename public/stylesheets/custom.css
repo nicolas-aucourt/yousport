@@ -218,3 +218,51 @@ div.success {
 	display:none;
 }
 
+#gmaps4rails_map{
+	width:675px;
+	height:500px;
+}
+
+.users{
+	list-style:none;
+}
+
+.users li{
+	margin-bottom:2em;
+	border-bottom:1px solid #D7D5D5;
+}
+
+.users li .coltop{
+	width:auto;
+	height:auto;
+	overflow:hidden;
+}
+
+.users li .coltop .colleft{
+	width:60%;
+	float:left;
+}
+
+.users li .coltop .colright{
+	margin-left:5%;
+	width:35%;
+	float:left;
+}
+
+.users li .colbottom{
+	height:auto;
+	text-align:left;
+}
+
+.users h3 {
+	line-height:1;
+	margin-bottom:0.2em;
+}
+
+.users p {
+	margin:0 0 0.2em;
+}
+
+.pagination {
+	margin-bottom:10px;
+}

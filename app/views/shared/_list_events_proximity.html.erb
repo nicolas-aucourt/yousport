@@ -1,11 +1,3 @@
-<a class="toggle_event" href="#" title="Create an event!">Create an event!</a>
-<div id="slidediv">
-<%= render 'shared/event_form' %>
-<a class="toggle_event" href="#" title="Close this panel">Close this panel</a>
-</div>
-
-<h2>All your events</h2>
-
 <% unless @events.empty? %>
 <%= will_paginate @events %>
 <ul class="users">
@@ -36,6 +28,11 @@
                                      :confirm => "You are going to delete "+event.name+", You sure?",
                                      :title => "Delete "+event.name %>
          <% end %>
+	
+<%= form_for current_user.relationships.build(:event_id => event.id) do |f| %>
+<div><%= f.hidden_field :event_id %></div>
+<div class="actions"><%= f.submit "Subscribe" %></div>
+<% end %>
 	 </p>
 	</div>
     </li>

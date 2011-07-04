@@ -1,5 +1,6 @@
 <% if signed_in? %>
 <p>Welcome <%= current_user.email %>:</p>
+<p><%= link_to "Events in your proximity", root_path, :title => "Events in your proximity" %></p>
 <p><%= link_to "Your profile", user_path(current_user), :title => "Your profile" %></p>
 <p><%= link_to "Modify your profile", edit_user_path(current_user), :title => "Modify your profile" %></p>
 <p><%= link_to "Your events", yourevents_path %></p>
